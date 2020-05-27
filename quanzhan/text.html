@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="list"></ul>
+<script>
+    (() => {
+        var ndContainer = document.getElementById('list');
+        if (!ndContainer) {
+            return;
+        }
+
+        for (let i = 0; i < 300; i++) {
+            const ndItem = document.createElement('li');
+            ndItem.innerText = i + 1;
+            ndContainer.appendChild(ndItem);
+        }
+
+        ndContainer.addEventListener('click', function (e) {
+            const target = e.target;
+            if (target.tagName === 'LI') {
+                alert(target.innerHTML);
+            }        });
+    })();
+</script>
+</body>
+</html>
